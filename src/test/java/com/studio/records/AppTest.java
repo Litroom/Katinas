@@ -1,4 +1,4 @@
-package lt.itmokymai.spring;
+package com.studio.records;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

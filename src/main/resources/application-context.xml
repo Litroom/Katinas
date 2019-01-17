@@ -1,73 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd">
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:component-scan base-package="lt.itmokymai.spring"/>
     <!-- Bean definitions goes there -->
-    <bean name="postbean" class="lt.itmokymai.spring.PostProc"/>
-    <bean id="serviceABean" class="lt.itmokymai.spring.ServiceA" init-method="initBean" destroy-method="destroyBean">
-        <property name="message" value="ServiceABean"/>
-    </bean>
-    <bean id="serviceBBean" class="lt.itmokymai.spring.ServiceB"
-          parent="serviceABean">
-        <property name="message" value="ServiceBBeanMsg"/>
-        <constructor-arg ref="serviceABean"/>
-    </bean>
-    <bean id="serviceCBean" class="lt.itmokymai.spring.ServiceC"
-          parent="serviceABean">
-        <property name="message" value="ServiceCBeanMsg"/>
-        <constructor-arg ref="serviceABean"/>
-    </bean>
-    <bean id="ListBean" class="lt.itmokymai.spring.ServiceC">
-        <property name="lists">
-            <list>
-                <value>1</value>
-                <ref bean="ListBean"/>
-                <bean id="product1" class="lt.itmokymai.spring.Product">
-                    <property name="imageUrl" value="card.imageUrl1"/>
-                    <property name="title" value="card.title1"/>
-                    <property name="description" value="card.description1"/>
-                    <property name="price" value="1.0"/>
-                    <property name="quantity" value="1"/>
-                </bean>
-                <value>2</value>
-                <ref bean="ListBean"/>
-                <bean id="product2" class="lt.itmokymai.spring.Product">
-                    <property name="imageUrl" value="card.imageUrl2"/>
-                    <property name="title" value="card.title2"/>
-                    <property name="description" value="card.description2"/>
-                    <property name="price" value="2.0"/>
-                    <property name="quantity" value="2"/>
-                </bean>
-                <value>3</value>
-                <ref bean="ListBean"/>
-                <bean id="product3" class="lt.itmokymai.spring.Product">
-                    <property name="imageUrl" value="card.imageUrl3"/>
-                    <property name="title" value="card.title3"/>
-                    <property name="description" value="card.description3"/>
-                    <property name="price" value="3.0"/>
-                    <property name="quantity" value="3"/>
-                </bean>
-                <value>4</value>
-                <ref bean="ListBean"/>
-                <bean id="product4" class="lt.itmokymai.spring.Product">
-                    <property name="imageUrl" value="card.imageUrl4"/>
-                    <property name="title" value="card.title4"/>
-                    <property name="description" value="card.description4"/>
-                    <property name="price" value="4.0"/>
-                    <property name="quantity" value="4"/>
-                </bean>
-                <value>5</value>
-                <ref bean="ListBean"/>
-                <bean id="product5" class="lt.itmokymai.spring.Product">
-                    <property name="imageUrl" value="card.imageUrl5"/>
-                    <property name="title" value="card.title5"/>
-                    <property name="description" value="card.description5"/>
-                    <property name="price" value="5.0"/>
-                    <property name="quantity" value="5"/>
-                </bean>
-            </list>
-        </property>
-    </bean>
 
 </beans>
